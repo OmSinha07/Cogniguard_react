@@ -1,6 +1,6 @@
 # 🚀 Cogniguard
 
-<div align="center">
+<!-- <div align="center">
 
 ![Cogniguard Logo](https://raw.githubusercontent.com/OmSinha07/Cogniguard_react/main/assets/cogniguard-logo.png) <!-- TODO: Add actual project logo to repo and update path -->
 
@@ -14,7 +14,7 @@
 [Live Demo](https://demo-link.com) <!-- TODO: Add live demo link if available --> |
 [Documentation](https://docs-link.com) <!-- TODO: Add detailed documentation link if available -->
 
-</div>
+</div> -->
 
 ## 📖 Overview
 
