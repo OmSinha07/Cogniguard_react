@@ -54,6 +54,8 @@ def register():
         db.session.add(user)
         db.session.commit()
 
+        session['pre_2fa_user_id'] = user.id 
+        
         # Key Generation for CogniGuard Architecture
         from crypto_utils_adaptive import adaptive_crypto
         from key_storage import key_storage
@@ -92,23 +94,27 @@ import urllib.parse
 
 @auth_bp.route('/setup-2fa-data', methods=['GET'])
 def setup_2fa_api():
-    """Feeds Setup2FAPage.tsx with QR and Secret"""
+    # DEBUG: Terminal mein check karein session aa raha hai ya nahi
     user_id = session.get('pre_2fa_user_id')
+    print(f"DEBUG Setup 2FA: Session user_id is {user_id}") 
+    
     if not user_id: 
-        return jsonify({"error": "Unauthorized"}), 401
+        return jsonify({"error": "Unauthorized - No session found"}), 401
     
     user = db.session.get(User, user_id)
     
-    # 1. URI generate karo
+    # Secret ensure karein
+    if not user.otp_secret:
+        user.otp_secret = pyotp.random_base32()
+        db.session.commit()
+
     otp_uri = pyotp.totp.TOTP(user.otp_secret).provisioning_uri(
         name=user.email, issuer_name="CogniGuard"
     )
     
-    # 2. URI ko Encode karo (Ye sabse zaroori step hai)
+    # URL Encoding zaroori hai
     encoded_uri = urllib.parse.quote(otp_uri)
-    
-    # 3. Encoded URI ko QR API mein dalo
-    qr_url = f"https://api.qrserver.com/v1/create-qr-code/?data={encoded_uri}&size=200x200"
+    qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data={encoded_uri}"
     
     return jsonify({
         "secret": user.otp_secret,

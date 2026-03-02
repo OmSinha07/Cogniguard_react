@@ -16,22 +16,30 @@ export function Setup2FAPage() {
   const [qrCodeUrl, setQrCodeUrl] = useState("");
 
   useEffect(() => {
-    const fetch2FAData = async () => {
-      try {
-        const response = await fetch('/auth/setup-2fa-data');
-        if (response.ok) {
-          const data = await response.json();
-          setSecretKey(data.secret);
-          setQrCodeUrl(data.qr_url);
-        }
-      } catch (error) {
-        console.error("Failed to fetch 2FA setup data");
-      } finally {
-        setIsLoading(false);
+  const fetch2FAData = async () => {
+    try {
+      // fetch ke andar options object dalo
+      const response = await fetch('/auth/setup-2fa-data', {
+        credentials: 'include' // <--- Ye ab sahi jagah hai
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        setSecretKey(data.secret);
+        setQrCodeUrl(data.qr_url);
+      } else {
+        console.error("Server returned error:", response.status);
       }
-    };
-    fetch2FAData();
-  }, []);
+    } catch (error) {
+      console.error("Failed to fetch 2FA setup data", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  fetch2FAData();
+}, []);
+  
 
   const handleCopy = () => {
     navigator.clipboard.writeText(secretKey);
