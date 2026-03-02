@@ -161,7 +161,7 @@ If using a relational database, you might need to initialize it and run migratio
     cd Cogniguard_frontend
     npm run dev # or yarn dev, or npm start
     ```
-    The frontend application will typically open in your browser at `http://localhost:3000`.
+    The frontend application will typically open in your browser at `http://localhost:5173`.
 
 ## 📁 Project Structure
 
@@ -209,7 +209,7 @@ Both the backend and frontend use `.env` files for configuration. Make sure to s
 | `FILE_STORAGE_PATH` | Directory where files will be stored            | `./uploads`     | Yes      |
 | `ML_MODEL_PATH`     | Path to the serialized ML model file            | `./ml_models/model.pkl` | Yes |
 | `FLASK_ENV`         | Flask environment (`development`/`production`)  | `development`   | No       |
-| `CORS_ORIGIN`       | URL of the allowed frontend origin for CORS     | `http://localhost:3000` | Yes |
+| `CORS_ORIGIN`       | URL of the allowed frontend origin for CORS     | `http://localhost:5173` | Yes |
 
 | Variable (Frontend) | Description                                     | Default         | Required |
 | :------------------ | :---------------------------------------------- | :-------------- | :------- |
