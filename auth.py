@@ -287,3 +287,31 @@ def google_callback_handler(): # Yahan bhi naam badal diya
     except Exception as e:
         print(f"Google Auth Error: {e}")
         return redirect("http://localhost:5173/login?error=auth_failed")
+
+# auth.py mein add karein
+@auth_bp.route('/delete-account', methods=['DELETE'])
+@login_required
+def delete_account():
+    try:
+        user = current_user
+        user_id = user.id
+        
+        # 1. User ki saari files dhoondo aur delete karo (Database se)
+        from models import EncryptedFile, SharedKey
+        EncryptedFile.query.filter_by(user_id=user_id).delete()
+        SharedKey.query.filter_by(user_id=user_id).delete()
+        
+        # 2. Audit log mein entry dalo
+        log_audit('ACCOUNT_DELETED', user_id=user_id, details=f"User {user.email} deleted their account")
+        
+        # 3. User ko delete karo
+        db.session.delete(user)
+        db.session.commit()
+        
+        # 4. Session clear karo
+        logout_user()
+        
+        return jsonify({"success": True, "message": "Account and all associated data deleted"}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"error": str(e)}), 500

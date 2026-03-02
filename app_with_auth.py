@@ -66,8 +66,9 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
 UPLOAD_FOLDER = 'encrypted_uploads'
 ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif', 'doc', 'docx', 'xls', 'xlsx', 'zip'}
-UPLOAD_PERFORMANCE_CSV = 'upload_performance_metrics.csv'
-DOWNLOAD_PERFORMANCE_CSV = 'download_performance_metrics.csv'
+# app_with_auth.py
+UPLOAD_PERFORMANCE_CSV = os.path.join(os.getcwd(), 'upload_performance_metrics.csv')
+DOWNLOAD_PERFORMANCE_CSV = os.path.join(os.getcwd(), 'download_performance_metrics.csv')
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
@@ -109,9 +110,9 @@ def write_metrics_to_csv(csv_file, metrics_dict, fieldnames):
             if not file_exists:
                 writer.writeheader()
             writer.writerow(metrics_dict)
+            print(f"DEBUG: CSV {csv_file} updated successfully.") # Ye check karne ke liye
     except Exception as e:
-        print(f"Error writing to performance CSV: {e}")
-
+        print(f"CRITICAL ERROR writing to CSV: {e}")
 # ============================================
 # EXISTING HTML ROUTES (KEPT & RESTORED)
 # ============================================

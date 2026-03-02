@@ -51,6 +51,25 @@ export function ProfilePage() {
     window.open(url, '_blank');
   };
 
+  // --- YAHAN PASTE KAREIN ---
+const handleDeleteAccount = async () => {
+  if (window.confirm("Do you want to delete your account? This action cannot be undone.")) {
+    try {
+      const response = await fetch('/auth/delete-account', {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+      if (response.ok) {
+        alert("Account deleted successfully.");
+        navigate("/login");
+        // window.location.href = "/login";
+      }
+    } catch (error) {
+      console.error("Delete failed", error);
+    }
+  }
+};
+
   if (isLoading) {
     return (
       <div className="h-screen flex flex-col items-center justify-center gap-4" style={{ backgroundColor: 'var(--bg-app)' }}>
@@ -60,6 +79,7 @@ export function ProfilePage() {
     );
   }
 
+ 
   return (
     <div className="min-h-screen relative overflow-hidden" style={{ backgroundColor: 'var(--bg-app)' }}>
       {/* Animated background */}
@@ -149,6 +169,17 @@ export function ProfilePage() {
                       <FileSpreadsheet className="w-3 h-3 mr-2" /> Downloads.csv
                     </Button>
                   </div>
+                </div>
+                {/* --- DANGER ZONE SECTION YAHAN DALO --- */}
+                <div className="mt-6 pt-6 border-t border-red-500/20">
+                  <h3 className="text-[10px] font-bold text-red-500 uppercase mb-3">Danger Zone</h3>
+                  <Button 
+                    onClick={handleDeleteAccount}
+                    variant="outline" 
+                    className="w-full text-xs h-9 border-red-500/30 text-red-500 hover:bg-red-500/10"
+                  >
+                    <LogOut className="w-3 h-3 mr-2" /> Delete Account
+                  </Button>
                 </div>
               </div>
             </Card>
