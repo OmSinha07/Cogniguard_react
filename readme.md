@@ -1,293 +1,347 @@
-# 🚀 CogniGuard
+# 🚀 Cogniguard
 
 <div align="center">
 
-<!-- TODO: Add project logo -->
+![Cogniguard Logo](https://raw.githubusercontent.com/OmSinha07/Cogniguard_react/main/assets/cogniguard-logo.png) <!-- TODO: Add actual project logo to repo and update path -->
 
-[![GitHub stars](https://img.shields.io/github/stars/OmSinha07/CogniGuard?style=for-the-badge)](https://github.com/OmSinha07/CogniGuard/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/OmSinha07/Cogniguard_react?style=for-the-badge)](https://github.com/OmSinha07/Cogniguard_react/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/OmSinha07/Cogniguard_react?style=for-the-badge)](https://github.com/OmSinha07/Cogniguard_react/network)
+[![GitHub issues](https://img.shields.io/github/issues/OmSinha07/Cogniguard_react?style=for-the-badge)](https://github.com/OmSinha07/Cogniguard_react/issues)
+[![GitHub license](https://img.shields.io/github/license/OmSinha07/Cogniguard_react?style=for-the-badge)](LICENSE) <!-- TODO: Add LICENSE file -->
 
-[![GitHub forks](https://img.shields.io/github/forks/OmSinha07/CogniGuard?style=for-the-badge)](https://github.com/OmSinha07/CogniGuard/network)
+**A secure, AI-powered web application for intelligent data classification and protected storage.**
 
-[![GitHub issues](https://img.shields.io/github/issues/OmSinha07/CogniGuard?style=for-the-badge)](https://github.com/OmSinha07/CogniGuard/issues)
-
-[![GitHub license](https://img.shields.io/github/license/OmSinha07/CogniGuard?style=for-the-badge)](LICENSE) <!-- TODO: Add actual license file and link -->
-
-**Your Fortress for Secure and Private File Management**
-
-<!-- TODO: Add live demo link if available -->
-<!-- TODO: Add documentation link if available -->
+[Live Demo](https://demo-link.com) <!-- TODO: Add live demo link if available --> |
+[Documentation](https://docs-link.com) <!-- TODO: Add detailed documentation link if available -->
 
 </div>
 
 ## 📖 Overview
 
-CogniGuard is a robust web application designed for highly secure and private file storage. It empowers users to securely upload and download files, protected by advanced cryptographic techniques, comprehensive key management, and multi-factor authentication. Beyond basic encryption, CogniGuard integrates machine learning models to detect potential threats within uploaded content, providing an intelligent layer of security. The application focuses on data privacy, offering a user-friendly interface powered by Flask, ensuring that your sensitive files remain confidential and protected against unauthorized access.
+Cogniguard is a full-stack web application designed to provide a robust and secure platform for managing and classifying data. It integrates a responsive React frontend with a powerful Python backend that handles secure authentication, adaptive cryptographic operations, file storage, and machine learning-driven data classification. This project aims to offer a comprehensive solution for users seeking both intelligent data insights and strong data protection.
 
 ## ✨ Features
 
--   **Secure File Upload & Download:** Encrypt and decrypt files during upload and download processes, ensuring data confidentiality.
--   **Robust User Authentication:** Secure registration and login system with multi-factor authentication (MFA) support using Argon2 password hashing.
--   **Advanced Key Management:** Generates and securely manages user-specific cryptographic keys, including adaptive key derivation.
--   **Machine Learning Threat Detection:** Utilizes a pre-trained ML model to classify and detect potential threats or anomalies in uploaded files.
--   **File Metadata Management:** Stores and retrieves essential metadata for each uploaded file, enhancing organization and retrieval.
--   **Performance Monitoring:** Logs and analyzes performance metrics for file upload and download operations.
--   **Role-Based Access Control:** Differentiates between regular users and administrative roles for enhanced security management.
--   **Client-Side Cryptography (Adaptive):** Employs adaptive cryptographic utilities for enhanced security and flexibility in encryption.
--   **Intuitive Web Interface:** A clean and responsive web interface built with Flask and Jinja2 templates for seamless user interaction.
+- 🔐 **Secure User Authentication & Authorization**: Robust Flask-based authentication system with password hashing and JWT (JSON Web Token) for secure session management.
+- 🛡️ **Adaptive Cryptographic Utilities**: Implements advanced and adaptive cryptographic techniques for data encryption and decryption, ensuring data confidentiality.
+- 📂 **Secure File Storage Management**: Dedicated modules for securely storing and managing user files, integrated with key management.
+- 🧠 **ML-Powered Data Classification**: Utilizes machine learning models (e.g., Scikit-learn) to classify uploaded data, providing intelligent insights and categorization.
+- 🔑 **Key Management System**: Manages cryptographic keys securely, essential for the encryption/decryption processes.
+- 🌐 **Responsive User Interface**: Built with React and TypeScript, offering an intuitive and dynamic user experience across various devices.
+- 📡 **RESTful API**: A well-defined API layer in Python facilitates seamless communication between the frontend and backend services.
 
 ## 🖥️ Screenshots
 
 <!-- TODO: Add actual screenshots of the application -->
-<!-- ![Screenshot 1](path-to-screenshot-1.png) -->
-<!-- ![Screenshot 2](path-to-screenshot-2.png) -->
+<!-- Example:
+![Login Page](assets/screenshots/login.png)
+_Login Page_
+
+![Dashboard with Classified Data](assets/screenshots/dashboard.png)
+_Dashboard displaying classified data_
+
+![File Upload Interface](assets/screenshots/upload.png)
+_Interface for uploading and managing files_
+-->
 
 ## 🛠️ Tech Stack
 
-**Backend:**
+### Frontend
 
-[![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+| Technology    | Badge                                                                                               |
+| :------------ | :-------------------------------------------------------------------------------------------------- |
+| React         | ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) |
+| TypeScript    | ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) |
+| npm/Yarn      | ![NPM](https://img.shields.io/badge/npm-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) |
+| Styling       | ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) |
 
-[![Flask](https://img.shields.io/badge/Flask-2.2.2-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+### Backend
 
-[![Flask-Login](https://img.shields.io/badge/Flask--Login-0.6.2-blue?style=for-the-badge)](https://flask-login.readthedocs.io/en/latest/)
-
-[![Cryptography](https://img.shields.io/badge/Cryptography-39.0.0-6D84C7?style=for-the-badge)](https://cryptography.io/en/latest/)
-
-[![Argon2](https://img.shields.io/badge/Argon2-21.3.0-darkgreen?style=for-the-badge)](https://pypi.org/project/argon2-cffi/)
-
-**Frontend:**
-
-[![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
-
-[![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
-
-[![Jinja2](https://img.shields.io/badge/Jinja2-3.1.2-white?style=for-the-badge&logo=jinja)](https://jinja.palletsprojects.com/)
-
-**Machine Learning:**
-
-[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-1.2.0-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-
-[![Pandas](https://img.shields.io/badge/Pandas-1.5.2-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-
-[![NumPy](https://img.shields.io/badge/NumPy-1.23.5-013243?style=for-the-badge&logo=numpy&logoColor=white)](https://numpy.org/)
-
-**Database:**
-
-[![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/index.html)
-
-[![Flask-SQLAlchemy](https://img.shields.io/badge/Flask--SQLAlchemy-3.0.3-orange?style=for-the-badge)](https://flask-sqlalchemy.palletsprojects.com/)
-
-[![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)](https://www.json.org/json-en.html)
+| Technology      | Badge                                                                                               |
+| :-------------- | :-------------------------------------------------------------------------------------------------- |
+| Python          | ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) |
+| Flask           | ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white) |
+| SQL Database    | ![SQL](https://img.shields.io/badge/SQL-025E8C?style=for-the-badge&logo=postgresql&logoColor=white) | <!-- Assumed relational DB with `models.py` -->
+| PyJWT           | ![JWT](https://img.shields.io/badge/json%20web%20tokens-323741?style=for-the-badge&logo=json-web-tokens&logoColor=white) |
+| scikit-learn    | ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) |
+| Cryptography    | ![Cryptography](https://img.shields.io/badge/cryptography-61DAFB?style=for-the-badge&logo=python&logoColor=white) | <!-- Representation for `cryptography` library -->
 
 ## 🚀 Quick Start
 
-Follow these steps to get CogniGuard up and running on your local machine.
+Follow these steps to set up and run Cogniguard locally on your machine.
 
 ### Prerequisites
 
--   **Python 3.x** (preferably 3.8 or higher)
--   **pip** (Python package installer, usually comes with Python)
+Ensure you have the following installed:
+
+-   **Python** (version 3.8 or higher recommended)
+-   **Node.js** (version 18 or higher recommended) & **npm** (comes with Node.js) or **Yarn**
 
 ### Installation
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/OmSinha07/CogniGuard.git
-    cd CogniGuard
+    git clone https://github.com/OmSinha07/Cogniguard_react.git
+    cd Cogniguard_react
     ```
 
-2.  **Install dependencies**
+2.  **Set up the Backend**
+    Navigate to the project root directory (Cogniguard_react).
     ```bash
+    # Create a virtual environment
+    python -m venv venv
+    source venv/bin/activate # On Windows: .\venv\Scripts\activate
+
+    # Install Python dependencies
     pip install -r requirements.txt
     ```
 
-3.  **Environment setup**
-    Create a `.env` file in the root directory and add your `SECRET_KEY`. This is crucial for Flask session management.
+3.  **Set up the Frontend**
+    Navigate into the `Cogniguard_frontend` directory.
     ```bash
-    cp .env.example .env # If .env.example existed, otherwise create manually
+    cd Cogniguard_frontend
+
+    # Install Node.js dependencies
+    npm install # or yarn install
     ```
-    Edit `.env` and add:
+
+### Environment Setup
+
+Create `.env` files for both the backend and frontend to configure essential variables.
+
+1.  **Backend Environment (`.env` in `Cogniguard_react` root)**
+    Create a file named `.env` in the root of the `Cogniguard_react` directory:
     ```ini
-    SECRET_KEY='your_super_secret_key_here'
-    FLASK_APP=app_with_auth.py
-    FLASK_ENV=development # For development, use 'production' for deployment
+    SECRET_KEY='your_super_secret_key_for_flask' # Change this to a strong, random key
+    JWT_SECRET_KEY='your_jwt_secret_key' # Change this to a strong, random key for JWT
+    DATABASE_URL='sqlite:///cogniguard.db' # Or your PostgreSQL/MySQL connection string
+    FILE_STORAGE_PATH='./uploads' # Path to store uploaded files
+    ML_MODEL_PATH='./ml_models/model.pkl' # Path to your ML model file
+    FLASK_ENV='development'
+    CORS_ORIGIN='http://localhost:3000' # Or your frontend's actual origin
     ```
-    Replace `'your_super_secret_key_here'` with a long, random string.
+    *Ensure `FILE_STORAGE_PATH` and `ML_MODEL_PATH` directories exist or are created by the application.*
 
-4.  **Database setup**
-    Initialize the SQLite database and create necessary tables.
+2.  **Frontend Environment (`.env` in `Cogniguard_frontend` directory)**
+    Create a file named `.env` in the `Cogniguard_frontend` directory:
+    ```ini
+    VITE_API_BASE_URL='http://localhost:5000' # Or your backend's actual URL
+    VITE_APP_NAME='Cogniguard'
+    ```
+    *Note: For Create React App, variables are `REACT_APP_...` instead of `VITE_...`.*
+
+### Database Setup (for Backend)
+
+If using a relational database, you might need to initialize it and run migrations.
+
+```bash
+# From the Cogniguard_react root directory
+# For SQLAlchemy/Flask-SQLAlchemy, run your migration commands if applicable.
+# Example with Flask-Migrate (if installed):
+# flask db init
+# flask db migrate -m "Initial migration"
+# flask db upgrade
+```
+*If using SQLite (default in the example `.env`), the database file `cogniguard.db` will be created automatically on first run.*
+
+### Start Development Servers
+
+1.  **Start the Backend API**
+    Navigate to the `Cogniguard_react` root directory and activate your virtual environment if not already active.
     ```bash
-    flask shell
+    # Ensure virtual environment is active
+    source venv/bin/activate
+    python app_with_auth.py
     ```
-    Inside the Flask shell, run:
-    ```python
-    from app_with_auth import db, app
-    with app.app_context():
-        db.create_all()
-    exit()
-    ```
-    This will create `site.db` inside the `instance/` folder and other JSON files like `file_metadata.json`, `user_keys.json` in the root.
+    The backend API will typically run on `http://localhost:5000`.
 
-5.  **Start development server**
+2.  **Start the Frontend Application**
+    Navigate to the `Cogniguard_frontend` directory.
     ```bash
-    flask run
+    cd Cogniguard_frontend
+    npm run dev # or yarn dev, or npm start
     ```
-
-6.  **Open your browser**
-    Visit `http://localhost:5000` (or the port indicated by Flask).
+    The frontend application will typically open in your browser at `http://localhost:3000`.
 
 ## 📁 Project Structure
 
 ```
-CogniGuard/
+Cogniguard_react/
 ├── .gitignore
-├── .env                  # Environment variables for Flask (SECRET_KEY, FLASK_APP)
-├── app_with_auth.py      # Main Flask application, routes, and core logic
-├── auth.py               # Authentication module (login, register, MFA, password hashing)
-├── crypto_utils.py       # Basic cryptographic utility functions
-├── crypto_utils_adaptive.py # Adaptive cryptographic utility functions
-├── download_performance_metrics.csv # CSV log for download performance
-├── encrypted_uploads/    # Directory to store encrypted user files
-├── file_metadata.json    # JSON file acting as a database for file metadata
-├── file_storage.py       # Handles file upload and download operations
-├── instance/             # Flask instance folder (contains SQLite database: site.db)
-│   └── site.db
-├── key_storage.py        # Manages user-specific encryption keys
-├── ml_classifier.py      # Machine learning model integration and classification logic
-├── ml_model.pkl          # Pre-trained ML model (e.g., for threat detection)
-├── models.py             # SQLAlchemy models for User and File entities
-├── requirements.txt      # Python package dependencies
-├── templates/            # HTML templates rendered by Flask
-│   ├── base.html         # Base template for common layout
-│   ├── dashboard.html    # User dashboard
-│   ├── download.html     # File download page
-│   ├── index.html        # Home page
-│   ├── login.html        # User login page
-│   ├── register.html     # User registration page
-│   └── upload.html       # File upload page
-├── upload_performance_metrics.csv # CSV log for upload performance
-└── user_keys.json        # JSON file acting as a database for user cryptographic keys
+├── app_with_auth.py        # Main Flask application with routes and authentication
+├── auth.py                 # Authentication and authorization logic
+├── crypto_utils.py         # Cryptographic utility functions
+├── crypto_utils_adaptive.py # Adaptive cryptographic algorithms
+├── file_storage.py         # Functions for secure file storage
+├── key_storage.py          # Functions for managing cryptographic keys
+├── ml_classifier.py        # Machine learning model for data classification
+├── models.py               # Database models (e.g., User, File, MLResult)
+├── requirements.txt        # Python backend dependencies
+├── .env                    # Backend environment variables (local)
+├── Cogniguard_frontend/    # React frontend application
+│   ├── public/             # Static assets
+│   ├── src/                # Frontend source code
+│   │   ├── components/     # Reusable React components
+│   │   ├── pages/          # Application pages (e.g., Login, Dashboard, Upload)
+│   │   ├── hooks/          # Custom React hooks (if used)
+│   │   ├── utils/          # Frontend utility functions
+│   │   ├── services/       # API integration services
+│   │   ├── styles/         # Styling files (CSS/SCSS/Tailwind)
+│   │   ├── App.tsx         # Main application component
+│   │   └── main.tsx        # Entry point for the React application
+│   ├── .env                # Frontend environment variables (local)
+│   ├── package.json        # Node.js dependencies and scripts for frontend
+│   └── tsconfig.json       # TypeScript configuration for frontend
+└── readme.md
 ```
 
 ## ⚙️ Configuration
 
 ### Environment Variables
 
-The application relies on environment variables for sensitive information and configuration.
-Create a `.env` file in the project root based on the example below.
+Both the backend and frontend use `.env` files for configuration. Make sure to set them up as described in the [Environment Setup](#environment-setup) section.
 
-| Variable    | Description                                              | Default       | Required |
+| Variable (Backend)  | Description                                     | Default         | Required |
+| :------------------ | :---------------------------------------------- | :-------------- | :------- |
+| `SECRET_KEY`        | Flask application's secret key                  | (random string) | Yes      |
+| `JWT_SECRET_KEY`    | Secret key for signing JWTs                     | (random string) | Yes      |
+| `DATABASE_URL`      | Database connection string                      | `sqlite:///cogniguard.db` | Yes |
+| `FILE_STORAGE_PATH` | Directory where files will be stored            | `./uploads`     | Yes      |
+| `ML_MODEL_PATH`     | Path to the serialized ML model file            | `./ml_models/model.pkl` | Yes |
+| `FLASK_ENV`         | Flask environment (`development`/`production`)  | `development`   | No       |
+| `CORS_ORIGIN`       | URL of the allowed frontend origin for CORS     | `http://localhost:3000` | Yes |
 
-| :---------- | :------------------------------------------------------- | :------------ | :------- |
-
-| `SECRET_KEY` | A strong, random string used for session management.     | None          | Yes      |
-
-| `FLASK_APP` | Specifies the main Flask application file.               | `app_with_auth.py` | Yes      |
-
-| `FLASK_ENV` | Sets the Flask environment (`development` or `production`). | `development` | Yes      |
-
-### Configuration Files
-
--   **`instance/site.db`**: The SQLite database for user accounts and file records (managed by Flask-SQLAlchemy).
--   **`file_metadata.json`**: Stores metadata for each encrypted file.
--   **`user_keys.json`**: Stores encrypted user keys.
+| Variable (Frontend) | Description                                     | Default         | Required |
+| :------------------ | :---------------------------------------------- | :-------------- | :------- |
+| `VITE_API_BASE_URL` | Base URL of the backend API                     | `http://localhost:5000` | Yes |
+| `VITE_APP_NAME`     | Name of the application                         | `Cogniguard`    | No       |
 
 ## 🔧 Development
 
-### Available Scripts
+### Available Scripts (Frontend - `Cogniguard_frontend/package.json`)
 
-| Command        | Description                                     |
-
-| :------------- | :---------------------------------------------- |
-
-| `flask run`    | Starts the Flask development server.            |
-
-| `flask shell`  | Opens an interactive Python shell with Flask app context. |
+| Command       | Description                                  |
+| :------------ | :------------------------------------------- |
+| `npm run dev` | Starts the development server                |
+| `npm run build` | Builds the app for production                |
+| `npm run lint` | Lints code for errors and style issues       |
+| `npm run preview` | Serves the production build locally        |
 
 ### Development Workflow
 
-1.  Ensure all prerequisites are met and dependencies are installed.
-2.  Set up environment variables in `.env`.
-3.  Initialize the database if it's a fresh setup.
-4.  Run `flask run` to start the application.
-5.  Access the application via your web browser.
+-   Make changes in the `Cogniguard_frontend/src` for the frontend.
+-   Make changes in the Python files in the `Cogniguard_react` root for the backend.
+-   The frontend development server typically provides hot-reloading.
+-   Changes to the backend Python files require restarting the `python app_with_auth.py` process to take effect.
 
 ## 🧪 Testing
 
-No specific testing framework or test files were detected in the repository. It is recommended to implement unit and integration tests for the various components (authentication, cryptography, file storage, ML classification) to ensure robustness and security.
+### Backend Testing (Python)
 
-<!-- ## 🚀 Deployment
+To run tests for the Python backend (if test files are implemented using `pytest` or `unittest`):
 
-For production deployment of this Flask application, it's recommended to use a production-ready WSGI server such as Gunicorn or uWSGI, typically behind a reverse proxy like Nginx or Apache.
+```bash
+# From Cogniguard_react root directory
+# Ensure virtual environment is active: source venv/bin/activate
+pytest # If pytest is installed and tests are in a 'tests' directory
+```
+<!-- TODO: Add specific test commands if a testing framework is detected in requirements.txt or test files exist -->
 
-**Example with Gunicorn:**
+### Frontend Testing (React)
 
-1.  Install Gunicorn:
-    ```bash
-    pip install gunicorn
-    ```
-2.  Run the application using Gunicorn:
-    ```bash
-    gunicorn -w 4 'app_with_auth:app'
-    ```
-    (Replace `4` with the number of worker processes appropriate for your server.)
+To run tests for the React frontend (if test files are implemented using `@testing-library/react` and `vitest` or `jest`):
 
-Consider containerization with Docker for easier deployment and environment consistency. -->
+```bash
+# From Cogniguard_frontend directory
+npm test # or yarn test
+```
+<!-- TODO: Add specific test commands if a testing framework is detected in package.json or test files exist -->
+
+## 🚀 Deployment
+
+### Production Build (Frontend)
+
+To create a production-ready build of the React application:
+
+```bash
+cd Cogniguard_frontend
+npm run build
+```
+This will generate optimized static assets in the `Cogniguard_frontend/dist` (or `build`) directory.
+
+### Deployment Options
+
+-   **Backend (Python Flask API)**:
+    -   Can be deployed using `gunicorn` or `uwsgi` for production, behind a reverse proxy like Nginx or Apache.
+    -   Containerization with Docker is a common approach for deployment to cloud platforms (AWS, GCP, Azure).
+    -   Platform-as-a-Service (PaaS) providers like Heroku, Render, or Google App Engine.
+-   **Frontend (React)**:
+    -   The `build` output can be served by any static file host (Nginx, Apache, Netlify, Vercel, AWS S3 + CloudFront).
+    -   Can be served from the same server as the backend, or completely separate.
+
+<!-- TODO: If Dockerfile is present, add Docker deployment instructions. -->
 
 ## 📚 API Reference
 
-CogniGuard provides web-based endpoints through Flask. Key routes include:
+The Python backend provides a RESTful API to interact with the application's core functionalities.
 
-### Authentication & User Management
--   `GET /`: Home page.
--   `GET /login`: Displays the login form.
--   `POST /login`: Handles user login.
--   `GET /register`: Displays the registration form.
--   `POST /register`: Handles user registration and key generation.
--   `GET /logout`: Logs out the current user.
--   `GET /mfa_setup`: Displays MFA setup page (if implemented).
--   `POST /mfa_setup`: Handles MFA setup (if implemented).
--   `GET /admin_dashboard`: Administrator dashboard (requires admin role).
+### Authentication
 
-### File Management
--   `GET /dashboard`: Displays user's file dashboard.
--   `GET /upload`: Displays the file upload form.
--   `POST /upload`: Handles secure file uploads, encryption, and ML classification.
--   `GET /download/<filename>`: Initiates secure file download and decryption.
--   `POST /delete_file/<filename>`: Deletes a user's file (requires authentication).
+API authentication is handled via **JSON Web Tokens (JWT)**.
+-   Users register (`/api/register`) and log in (`/api/login`) to receive a JWT.
+-   This token must be included in the `Authorization` header as a `Bearer` token for protected routes.
+
+### Endpoints
+
+(Below are inferred endpoints based on file analysis; actual endpoints depend on `app_with_auth.py` implementation)
+
+| HTTP Method | Endpoint                       | Description                               | Authentication |
+| :---------- | :----------------------------- | :---------------------------------------- | :------------- |
+| `POST`      | `/api/register`                | Register a new user                       | None           |
+| `POST`      | `/api/login`                   | Authenticate user and get JWT             | None           |
+| `GET`       | `/api/user/profile`            | Retrieve current user's profile           | Required       |
+| `POST`      | `/api/files/upload`            | Upload a file for processing/storage      | Required       |
+| `GET`       | `/api/files/<file_id>`         | Retrieve a specific file (encrypted)      | Required       |
+| `GET`       | `/api/files/classified`        | Get classified data or files              | Required       |
+| `POST`      | `/api/data/classify`           | Send data for ML classification           | Required       |
+| `POST`      | `/api/keys/generate`           | Generate new encryption keys              | Required       |
+| `GET`       | `/api/keys/revoke/<key_id>`    | Revoke an existing encryption key         | Required       |
+| `GET`       | `/api/logout`                  | Invalidate user session (backend)         | Required       |
 
 ## 🤝 Contributing
 
-We welcome contributions to CogniGuard! If you have suggestions for improvements, new features, or bug fixes, please consider the following:
+We welcome contributions to Cogniguard! If you'd like to contribute, please follow these steps:
 
 1.  Fork the repository.
-2.  Create a new branch (`git checkout -b feature/YourFeatureName`).
+2.  Create a new branch for your feature or bug fix: `git checkout -b feature/your-feature-name`.
 3.  Make your changes.
-4.  Commit your changes (`git commit -m 'Add new feature'`).
-5.  Push to the branch (`git push origin feature/YourFeatureName`).
-6.  Open a Pull Request.
+4.  Commit your changes: `git commit -m 'feat: Add new feature'`.
+5.  Push to your forked repository: `git push origin feature/your-feature-name`.
+6.  Open a Pull Request to the `main` branch of this repository.
 
-Please ensure your code adheres to a consistent style and includes comments where necessary.
+Please ensure your code adheres to the project's coding style and includes appropriate tests.
 
 ### Development Setup for Contributors
 
-The development setup is the same as described in the [Quick Start](#🚀-quick-start) section.
+Follow the [Quick Start](#quick-start) guide to get the development environment running.
 
 ## 📄 License
 
-This project is currently without an explicit license. Please contact the repository owner for licensing details. <!-- TODO: Add actual license if available, e.g., MIT License -->
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details. <!-- TODO: Create a LICENSE file with MIT license content -->
 
 ## 🙏 Acknowledgments
 
--   **Flask Ecosystem:** For providing a flexible and powerful web framework.
--   **Cryptography Library:** For secure cryptographic primitives.
--   **Scikit-learn, Pandas, NumPy:** For robust machine learning and data handling capabilities.
--   **OmSinha07:** The project author.
+-   **Python Community**: For a versatile language and extensive libraries.
+-   **React Community**: For an excellent UI library.
+-   **Flask Framework**: For providing a lightweight and powerful backend.
+-   **Scikit-learn**: For machine learning functionalities.
+-   **`cryptography` library**: For secure cryptographic primitives.
+-   [OmSinha07](https://github.com/OmSinha07) for initiating this project.
 
 ## 📞 Support & Contact
 
--   📧 Email: [Contact OmSinha07 via GitHub profile](https://github.com/OmSinha07) <!-- TODO: Add a specific contact email if desired -->
--   🐛 Issues: [Report bugs or suggest features on GitHub Issues](https://github.com/OmSinha07/CogniGuard/issues)
+-   📧 Email: [omsinha.dev@example.com] <!-- TODO: Add actual contact email -->
+-   🐛 Issues: [GitHub Issues](https://github.com/OmSinha07/Cogniguard_react/issues)
 
 ---
 
@@ -298,4 +352,3 @@ This project is currently without an explicit license. Please contact the reposi
 Made with ❤️ by [OmSinha07](https://github.com/OmSinha07)
 
 </div>
-
