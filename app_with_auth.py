@@ -217,52 +217,57 @@ def write_metrics_to_csv(csv_file, metrics_dict, fieldnames):
 @login_required
 def get_files_api():
     try:
-        # 1. Sirf user ki apni files uthao (Same as before)
+        # 1. Sirf user ki apni files uthao
         owned = EncryptedFile.query.filter_by(user_id=current_user.id).all()
         
-        owned_list = [{
-            "id": f.id, 
-            "original_filename": f.original_filename, 
-            "file_size": f.file_size, 
-            "sensitivity": f.sensitivity,
-            "ml_confidence": f.ml_confidence or 0.85,
-            "uploaded_at": f.uploaded_at.strftime("%d %b, %I:%M %p"),
-            # "uploaded_at": f.uploaded_at.isoformat(),
-            "is_shared": False,
-            "shared_by": "You"
-        } for f in owned]
-
+        # FIX: Pehle empty list banao
+        owned_list = []
+        
+        for f in owned:
+            # UTC to IST conversion (5:30 ghante add karo)
+            ist_time = f.uploaded_at + timedelta(hours=5, minutes=30)
+            
+            owned_list.append({
+                "id": f.id, 
+                "original_filename": f.original_filename, 
+                "file_size": f.file_size, 
+                "sensitivity": f.sensitivity,
+                "ml_confidence": f.ml_confidence or 0.85,
+                "uploaded_at": ist_time.strftime("%d %b, %I:%M %p"),
+                "is_shared": False,
+                "shared_by": "You"
+            })
+        
         # --- SHARED FILES UPDATE START ---
         shared_records = SharedKey.query.filter_by(user_id=current_user.id).all()
         shared_file_ids = [s.file_id for s in shared_records]
         
         shared_list = []
         if shared_file_ids:
-            # Wo files fetch karo jo shared hain aur tumhari apni nahi hain
             shared_files = EncryptedFile.query.filter(
                 EncryptedFile.id.in_(shared_file_ids),
                 EncryptedFile.user_id != current_user.id
             ).all()
             
             for f in shared_files:
+                ist_time_shared = f.uploaded_at + timedelta(hours=5, minutes=30)
                 shared_list.append({
                     "id": f.id,
                     "original_filename": f.original_filename,
                     "file_size": f.file_size,
                     "sensitivity": f.sensitivity,
                     "ml_confidence": f.ml_confidence or 0.75,
-                    "uploaded_at": f.uploaded_at.strftime("%d %b, %I:%M %p"),
-                    # "uploaded_at": f.uploaded_at.isoformat(),
+                    "uploaded_at": ist_time_shared.strftime("%d %b, %I:%M %p"),
                     "is_shared": True,
-                    "shared_by": f.owner.email # Owner ka asli email dikhega
+                    "shared_by": f.owner.email 
                 })
         # --- SHARED FILES UPDATE END ---
 
-        # 3. Final Response (Structure remains the same)
+        # 3. Final Response
         response_data = {
-            "files": owned_list,        # Dashboard counters ke liye sirf apni files
-            "owned_files": owned_list,  # Table ke liye
-            "shared_files": shared_list  # AB YE DYNAMIC HAI
+            "files": shared_list + owned_list,  # Dono ko merge karo total count ke liye
+            "owned_files": owned_list,
+            "shared_files": shared_list
         }
         
         return jsonify(response_data) 
@@ -352,6 +357,15 @@ def get_ml_stats_api():
 def get_profile_api():
     user_files = EncryptedFile.query.filter_by(user_id=current_user.id).all()
     
+    # 1. Registration date ko IST mein convert karein
+        # 'created_at' aapke User model mein hona chahiye
+    if hasattr(current_user, 'created_at') and current_user.created_at:
+                ist_member_since = current_user.created_at + timedelta(hours=5, minutes=30)
+                member_since_str = ist_member_since.strftime("%d %b, %Y")
+    else:
+                # Agar created_at nahi hai toh aaj ki date dikhao (IST)
+                member_since_str = (datetime.utcnow() + timedelta(hours=5, minutes=30)).strftime("%d %b, %Y")
+
     # Storage calculation (MB mein)
     total_bytes = sum(f.file_size for f in user_files)
     total_mb = f"{round(total_bytes / (1024 * 1024), 2)} MB"
@@ -365,7 +379,7 @@ def get_profile_api():
             "name": current_user.username,
             "email": current_user.email,
             "role": "User", # Static or dynamic based on your model
-             # Ya user.created_at se nikalo
+            "memberSince": member_since_str  # AB YE IST MEIN HAI # Ya user.created_at se nikalo
         },
         "stats": { # Frontend 'stats' dhoond raha hai
             "filesEncrypted": len(user_files),
@@ -377,8 +391,28 @@ def get_profile_api():
 @app.route('/api/logs', methods=['GET'])
 @login_required
 def get_logs_api():
-    logs = AuditLog.query.filter_by(user_id=current_user.id).order_by(AuditLog.timestamp.desc()).limit(20).all()
-    return jsonify([{"id": l.id, "action": l.action, "timestamp": l.timestamp.isoformat(), "ip": l.ip_address, "success": l.success} for l in logs])
+    try:
+        # User ke logs fetch karo
+        logs = AuditLog.query.filter_by(user_id=current_user.id).order_by(AuditLog.timestamp.desc()).limit(20).all()
+        
+        log_list = []
+        for l in logs:
+            # UTC timestamp ko IST mein convert karo
+            ist_time = l.timestamp + timedelta(hours=5, minutes=30)
+            
+            log_list.append({
+                "id": l.id,
+                "action": l.action,
+                # formatted IST time bhej rahe hain
+                "timestamp": ist_time.strftime("%d %b, %I:%M %p"), 
+                "ip": l.ip_address,
+                "success": l.success
+            })
+            
+        return jsonify(log_list)
+    except Exception as e:
+        print(f"Logs Error: {e}")
+        return jsonify({"error": str(e)}), 500
 
 import hashlib
 
